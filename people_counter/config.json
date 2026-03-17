@@ -1,0 +1,42 @@
+{
+  "camera": {
+    "source": "webcam",
+    "webcam_index": 0,
+    "rtsp_url": "rtsp://username:password@192.168.1.100:554/stream",
+    "buffer_size": 2,
+    "reconnect_attempts": 5,
+    "reconnect_delay_sec": 3
+  },
+  "line": {
+    "mode": "auto_horizontal_center"
+  },
+  "detection": {
+    "model": "yolov8s.pt",
+    "confidence_threshold": 0.5,
+    "min_box_area": 1500,
+    "track_history_len": 30,
+    "min_track_frames": 5,
+    "tracker": "bytetrack.yaml"
+  },
+  "stabilization": {
+    "iou_overlap_threshold": 0.6,
+    "centroid_merge_distance": 60,
+    "crossing_cooldown_frames": 20,
+    "ghost_ttl_frames": 30
+  },
+  "database": {
+    "host": "localhost",
+    "port": 3306,
+    "user": "root",
+    "password": "root",
+    "database": "people_count",
+    "table": "daily_counts",
+    "sync_interval_sec": 5
+  },
+  "display": {
+    "show_tracks": true,
+    "show_ids": true,
+    "show_bbox": true,
+    "window_title": "People Counter"
+  }
+}
